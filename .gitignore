@@ -165,3 +165,8 @@ MilesQiu2/*
 new_model_Miles_old/*
 results/*
 *safetensors
+
+data/*data*
+data/output.csv
+data/*training*
+data/*.parquet
