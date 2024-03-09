@@ -1,0 +1,7 @@
+{
+    "file_path": "./data/output.csv",
+    "output_path": "./data/security_filter_high_score.parquet",
+    "security_tag_path": "./filtered_security_related_tags.csv",
+    "high_score_csv_path": "./data/security_filter_high_score_data.csv",
+    "high_score_threshold": 10
+}
