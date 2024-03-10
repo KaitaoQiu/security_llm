@@ -47,7 +47,7 @@ class SecurityLLMTrainer:
             self.config['base_model'],
             quantization_config=quant_config,
             device_map={"": 0},
-            cache_dir=self.config['cache_dir']
+            cache_dir=self.config['cache_dir']['HF_HOME']
         )
         self.model.config.use_cache = False
         self.model.config.pretraining_tp = 1
@@ -57,7 +57,7 @@ class SecurityLLMTrainer:
         self.tokenizer.padding_side = "right"
 
         self.logger.info("Model and tokenizer loaded")
-        self.logger.info("Cache directory is {}".format(self.config['cache_dir']))
+        self.logger.info("Cache directory is {}".format(self.config['cache_dir']['HF_HOME']))
         self.logger.info("CUDA available: {}".format(torch.cuda.is_available()))
 
     def setup_training(self):
@@ -88,6 +88,8 @@ class SecurityLLMTrainer:
 
 # Example usage
 if __name__ == "__main__":
-    trainer = SecurityLLMTrainer(config_path='config.json')
+    config_path = './model_config/filter_security_training.json'
+    print("loading config from {}".format(config_path))
+    trainer = SecurityLLMTrainer(config_path=config_path)
     trainer.train()
     trainer.save_model()
