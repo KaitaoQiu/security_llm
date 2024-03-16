@@ -81,7 +81,7 @@ Use the code below to get started with the model.
 
 [More Information Needed]
 
-### Training Procedure 
+### Training Procedure
 
 <!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
 
@@ -197,8 +197,6 @@ Carbon emissions can be estimated using the [Machine Learning Impact calculator]
 ## Model Card Contact
 
 [More Information Needed]
-
-
 ### Framework versions
 
-- PEFT 0.8.2
+- PEFT 0.9.0
