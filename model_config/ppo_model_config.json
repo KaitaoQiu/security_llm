@@ -1,0 +1,52 @@
+{
+    "model_name": "NousResearch/Llama-2-7b-chat-hf",
+    "dataset_name": "/scratch/kqa3/security_llm/data/stackoverflow_pair",
+    "reward_model":"/scratch/kqa3/security_llm/security_miles_model/reward_model",
+    "rm_load_in_8bit": true,
+    "output_dir": "/scratch/kqa3/security_llm/security_miles_model/ppo_model",
+    "ppo_config": {
+      "learning_rate": 1e-5,
+      "batch_size": 1,
+      "mini_batch_size": 1,
+      "gradient_accumulation_steps": 1,
+      "use_score_scaling": false,
+      "use_score_norm": false,
+      "score_clip": null,
+      "log_with":"tensorboard"
+    },
+    "tsboard_logging_dir": "/scratch/kqa3/security_llm/results/ppo_model",
+    "total_ppo_epochs": 20,
+    "save_freq": 0,
+    "reward_baseline": 0.5,
+    "cache_dir": {
+      "HF_HOME": "/scratch/kqa3/security_llm/cache/",
+      "HF_DATASETS_CACHE": "/scratch/kqa3/security_llm/cache/",
+      "HUGGINGFACE_HUB_CACHE": "/scratch/kqa3/security_llm/cache/",
+      "TRANSFORMERS_CACHE": "/scratch/kqa3/security_llm/cache/"
+    },
+    "input_min_text_length": 32,
+    "input_max_text_length": 512,
+    "output_min_length": 32,
+    "output_max_length": 512,
+    "lora_config": {
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "r": 16,
+      "bias": "none",
+      "task_type": "CAUSAL_LM"
+    },
+    "nf4_config": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_compute_dtype": "float16",
+      "bnb_4bit_use_double_quant": false
+    },
+    "generation_kwargs": {
+      "top_k": 0.0,
+      "top_p": 0.9,
+      "do_sample": true,
+      "max_new_tokens": 32
+    },
+    "use_safetensors": false
+  }
+  

@@ -170,3 +170,4 @@ data/*data*
 data/output.csv
 data/*training*
 data/*.parquet
+data/stackoverflow_pair/*.parquet
