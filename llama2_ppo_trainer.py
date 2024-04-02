@@ -161,7 +161,6 @@ class PPOModelTrainer:
         output_length_sampler = LengthSampler(self.config['output_min_length'], self.config['output_max_length'])
 
         for epoch, batch in tqdm(enumerate(self.ppo_trainer.dataloader)):
-            # 检查是否达到了总的PPO训练周期
             if epoch >= self.config['total_ppo_epochs']:
                 break
 
@@ -180,11 +179,9 @@ class PPOModelTrainer:
             rewards = [torch.tensor(output["score"] - self.config['reward_baseline']) if output["label"] == "LABEL_1" else torch.tensor(0.0) for output in pipe_outputs]
 
 
-            # 执行PPO步骤
             stats = self.ppo_trainer.step(question_tensors, response_tensors, rewards)
             self.ppo_trainer.log_stats(stats, batch, rewards)
 
-            # 在特定的训练频率下保存模型
             if self.config['save_freq'] and epoch and epoch % self.config['save_freq'] == 0:
                 self.ppo_trainer.save_pretrained(self.config['output_dir'] + f"step_{epoch}")
 

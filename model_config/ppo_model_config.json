@@ -15,7 +15,7 @@
       "log_with":"tensorboard"
     },
     "tsboard_logging_dir": "/scratch/kqa3/security_llm/results/ppo_model",
-    "total_ppo_epochs": 20,
+    "total_ppo_epochs": 1000,
     "save_freq": 0,
     "reward_baseline": 0.5,
     "cache_dir": {
