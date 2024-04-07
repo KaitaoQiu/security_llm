@@ -86,7 +86,6 @@ class SecurityLLMTrainer:
         self.model.config.to_json_file(os.path.join(self.config['new_model_path'], 'config.json'))
         self.logger.info("Model saved to {}".format(self.config['new_model_path']))
 
-# Example usage
 if __name__ == "__main__":
     config_path = './model_config/filter_security_training.json'
     print("loading config from {}".format(config_path))

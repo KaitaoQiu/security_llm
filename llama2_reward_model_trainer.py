@@ -120,7 +120,6 @@ class RewardModelTrainer:
         self.model.config.to_json_file(os.path.join(self.config['reward_config']['output_dir'], 'config.json'))
         self.logger.info("Model saved to {}".format(self.config['reward_config']['output_dir']))
 
-# Example usage
 if __name__ == "__main__":
     config_path = './model_config/reward_model_config.json'
     print("Loading config from {}".format(config_path))

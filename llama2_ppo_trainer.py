@@ -66,7 +66,6 @@ class PPOModelTrainer:
             return_token_type_ids=False,
         )
 
-        # 如果pad_token_id未定义，则将其设置为eos_token_id
         if self.sentiment_pipe.model.config.pad_token_id is None:
             self.sentiment_pipe.model.config.pad_token_id = self.sentiment_pipe.model.config.eos_token_id
 
